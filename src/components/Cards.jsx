@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import '../assets/styles/card.css';
-import { ItemCard } from './ItemCard';
-import { UseFetch } from '../hooks/UseFetch';
-import { Spinner } from './Spinner';
+import { ItemCard, Spinner } from '../components';
+import { UseFetch } from '../hooks/';
 import { useEffect, useState } from 'react';
 
 export const Cards = ({ onAddInfoCategoriesForCard }) => {

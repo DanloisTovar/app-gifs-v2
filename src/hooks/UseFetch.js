@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getGifs } from '../helpers/getGifs';
+import { getGifs } from '../helpers';
 
 export const UseFetch = (value) => {
 	const [gifts, setGifts] = useState([]);
