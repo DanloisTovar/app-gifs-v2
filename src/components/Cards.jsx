@@ -1,38 +1,53 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
-import { getGifs } from '../helpers/getGifs';
 import '../assets/styles/card.css';
 import { ItemCard } from './ItemCard';
+import { UseFetch } from '../hooks/UseFetch';
+import { Spinner } from './Spinner';
+import { useEffect, useState } from 'react';
 
 export const Cards = ({ onAddInfoCategoriesForCard }) => {
 	// hooks:
-	const [gifts, setGifts] = useState([]);
-
-	//    functions:
-
-	const getNewGifs = async () => {
-		const newGif = await getGifs(onAddInfoCategoriesForCard);
-		setGifts(newGif);
-	};
-
+	const { gifts, isLoading } = UseFetch(onAddInfoCategoriesForCard);
+	const [showTimeoutMessage, setShowTimeoutMessage] = useState(false);
 	useEffect(() => {
-		/* getGifs(onAddInfoCategoriesForCard).then(setGifts); */
-		getNewGifs();
+		const timeoutId = setTimeout(() => {
+			setShowTimeoutMessage(true);
+		}, 10000); // 30 segundos
+
+		// Limpia el temporizador si el componente se desmonta antes de que se agote el tiempo
+		return () => clearTimeout(timeoutId);
 	}, []);
 
 	return (
 		<>
-			<div className="flex justify-center items-center min-h-screen mb-4 min-h-0">
-				<h1 className="text-indigo-500 text-5xl font-bold">
-					{onAddInfoCategoriesForCard}
-				</h1>
-			</div>
+			{isLoading ? (
+				<>
+					{showTimeoutMessage ? (
+						<p className="mt-4 text-indigo-500 font-bold text-center">
+							No hay conexión con la API
+						</p>
+					) : (
+						<Spinner />
+					)}
+				</>
+			) : (
+				<>
+					<div className="flex justify-center items-center mb-4 min-h-0">
+						<h1 className="text-indigo-500 text-5xl font-bold">
+							{onAddInfoCategoriesForCard}
+						</h1>
+					</div>
 
-			<div className="flex flex-wrap justify-around">
-				{gifts.map((gif) => (
-					<ItemCard key={gif.id} {...gif} /* exparsion de props */ />
-				))}
-			</div>
+					<div className="flex flex-wrap justify-around">
+						{gifts.map((gif) => (
+							<ItemCard
+								key={gif.id}
+								{...gif} /* exparsion de props */
+							/>
+						))}
+					</div>
+				</>
+			)}
 		</>
 	);
 };
