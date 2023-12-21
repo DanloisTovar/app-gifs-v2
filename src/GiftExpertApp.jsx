@@ -20,7 +20,10 @@ function GiftExpertApp() {
 
 	return (
 		<>
-			<div className="h-screen">
+			<div
+				className="h-screen￼￼Buscar
+goku"
+			>
 				<Navbar />
 				<Header />
 				<div className="container mx-auto">
@@ -42,11 +45,10 @@ function GiftExpertApp() {
 							onAddInfoCategoriesForCard={category}
 						/>
 					))}
-
-					{/* Footer */}
 				</div>
+				{/* Footer */}
+				<Footer />
 			</div>
-			<Footer />
 		</>
 	);
 }
