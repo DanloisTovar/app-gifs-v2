@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cards Component Snapshot should match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-col justify-center items-center min-h-5 m-5"
+  >
+    <div
+      class="custom-loader"
+    />
+    <p
+      class="mt-4 text-indigo-500 font-bold"
+    >
+      Cargando...
+    </p>
+  </div>
+</DocumentFragment>
+`;
