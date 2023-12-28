@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemCard component Snapshot snapshot del componente ItemCard coincide con la última versión 1`] = `
+<DocumentFragment>
+  <div
+    class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 max-w-sm rounded overflow-hidden shadow-lg m-4 flex flex-col"
+  >
+    <div
+      class="w-full h-64 overflow-hidden"
+    >
+      <img
+        alt="Imagen de la tarjeta"
+        class="w-full h-full object-cover"
+        src="https://example.com/image.jpg"
+      />
+    </div>
+    <div
+      class="px-6 py-4 flex-grow"
+    >
+      <div
+        class="font-bold text-xl mb-2"
+      >
+        Title
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
