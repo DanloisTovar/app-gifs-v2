@@ -7,6 +7,7 @@
 		"dev": "vite",
 		"build": "vite build",
 		"test": "jest --watchAll",
+		"test-pre-push": "jest",
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
 		"postinstall": "husky install",
 		"preview": "vite preview"
